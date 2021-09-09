@@ -1,7 +1,4 @@
-# simple_blog_app
-
-This application is created by Shakur Chowdhury for the job recruiting purpose in the Misfit technology ltd,
-
+My shejahtera
 ## Getting Started
 
 This project is a starting point for a Flutter application.
