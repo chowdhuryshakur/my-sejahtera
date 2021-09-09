@@ -69,7 +69,7 @@ class _TestPageState extends State<TestPage> {
                                                   0, 7, 0, 5),
                                               child: Text(e.itemName,
                                                   style: TextStyle(
-                                                      fontSize: 16,
+                                                      fontSize: 12,
                                                       color: Colors.black)),
                                             ),
                                             Expanded(child: SizedBox()),

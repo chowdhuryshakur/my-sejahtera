@@ -32,18 +32,20 @@ class _LoginPageState extends State<LoginPage> {
       Future.delayed(Duration(milliseconds: 10000), () {
         if (loginController.user.value.id != null)
           setState(() {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Layout()));
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Layout()));
             isloading = false;
           });
         else
           alertPopup(context);
-          setState(() {
-            isloading = false;
-          });
+        setState(() {
+          isloading = false;
+        });
       });
     }
   }
-alertPopup(BuildContext context) {
+
+  alertPopup(BuildContext context) {
     Widget okButton =
         FlatButton(onPressed: () => Navigator.pop(context), child: Text('OK'));
     AlertDialog alert = AlertDialog(
@@ -57,6 +59,7 @@ alertPopup(BuildContext context) {
           return alert;
         });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +71,7 @@ alertPopup(BuildContext context) {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(height: 50),
                   Center(
                       child: Container(
                     height: 120.0,
@@ -78,13 +82,14 @@ alertPopup(BuildContext context) {
                             fit: BoxFit.cover,
                             image: AssetImage('img/logo.png'))),
                   )),
-                  SizedBox(height: 30),
+                  SizedBox(height: 60),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color: Color(0xffFFFFFF),
-                            border: Border.all(color: Colors.grey[600])),
+                            border: Border.all(color: Colors.grey[300])
+                        ),
                         child: SizedBox(
                             height: 38.0,
                             width: MediaQuery.of(context).size.width * .35,
@@ -92,8 +97,13 @@ alertPopup(BuildContext context) {
                                 child: DropdownButton<String>(
                               hint: Text('    MY(+60)',
                                   style: TextStyle(fontSize: 15)),
-                              items: <String>['MY(+60)', 'B', 'C', 'D']
-                                  .map((String value) {
+                              items: <String>[
+                                'MY (+60)',
+                                'AF (+93)',
+                                'DZ (+213)', 
+                                'AS (+1 684)',
+                                'BD (+880)'
+                              ].map((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
                                   child: Text(value),
@@ -113,14 +123,16 @@ alertPopup(BuildContext context) {
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: Colors.black38)),
+                                borderSide: BorderSide(color: Colors.black38),
+                                
+                            ),
                             filled: true,
                             focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blueGrey)),
                             contentPadding: EdgeInsets.only(
                                 bottom: 5.0, left: 10.0, right: 10.0),
                             hintStyle: new TextStyle(
-                                color: Colors.black54, fontSize: 15.0),
+                                color: Colors.black54, fontSize: 13.0),
                             hintText: "Mobile number"),
                       ),
                     )),
@@ -146,7 +158,7 @@ alertPopup(BuildContext context) {
                                 bottom: 5.0, left: 10.0, right: 10.0),
                             hintStyle: new TextStyle(
                               color: Colors.black54,
-                              fontSize: 15.0,
+                              fontSize: 13.0,
                             ),
                             suffixIcon: IconButton(
                                 icon: Icon(
@@ -162,16 +174,23 @@ alertPopup(BuildContext context) {
                             hintText: "Password"),
                         obscureText: _isObscure,
                       ),
-                    )),
+                    )
+                    
+                    
+                    ),
+                    
                   ),
                   Padding(
                       padding: EdgeInsets.fromLTRB(140, 5, 0, 0),
                       child: Text('Login with email',
                           style: TextStyle(
                               color: Color(0xFF3A83FF),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.right)),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold
+                          ),
+                          textAlign: TextAlign.right
+                      )
+                  ),
                   SizedBox(height: MediaQuery.of(context).size.height * .06),
                   TextButton(
                       child: Container(
@@ -184,9 +203,10 @@ alertPopup(BuildContext context) {
                               padding: EdgeInsets.fromLTRB(50, 6, 50, 6),
                               child: Text('Sign In',
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 15),
+                                      color: Colors.white, fontSize: 12),
                                   textAlign: TextAlign.center))),
                       onPressed: () => login()),
+                      SizedBox(height: 15),
                   TextButton(
                       child: Container(
                           decoration: BoxDecoration(
@@ -198,19 +218,21 @@ alertPopup(BuildContext context) {
                               padding: EdgeInsets.fromLTRB(50, 6, 50, 6),
                               child: Text('Register Here',
                                   style: TextStyle(
-                                      color: Color(0xFF3A83FF), fontSize: 15),
+                                      color: Color(0xFF3A83FF), fontSize: 13,
+                                      fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.center))),
                       onPressed: () => Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => LoginPage()))),
+                  SizedBox(height: 20),
                   Center(
                     child: Padding(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 20),
                         child: Text('Forgot password?',
                             style: TextStyle(
                                 color: Color(0xFF3A83FF),
-                                fontSize: 16,
+                                fontSize: 13,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.right)),
                   ),
@@ -219,27 +241,27 @@ alertPopup(BuildContext context) {
                           padding: EdgeInsets.all(2),
                           child: Text('Need Help?',
                               style: TextStyle(
-                                  color: Color(0xFF3A83FF), fontSize: 14),
+                                  color: Color(0xFF3A83FF), fontSize: 10),
                               textAlign: TextAlign.right))),
                   Center(
                       child: Padding(
                           padding: EdgeInsets.all(2),
                           child: Text('Strategic Collaboration',
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.right))),
                   Center(
                       child: Padding(
                           padding: EdgeInsets.all(2),
                           child: Text('NSC\u2022MOH\u2022MAMPU\u2022MCMC',
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.right))),
                   Center(
                       child: Padding(
                     padding: EdgeInsets.all(2),
                     child: Text('App Version 1.0.45',
-                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                        style: TextStyle(color: Colors.grey, fontSize: 10),
                         textAlign: TextAlign.right),
                   )),
                 ],

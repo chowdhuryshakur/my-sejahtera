@@ -45,7 +45,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'My Personal Details',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -53,7 +53,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'Change MySJ ID',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -61,7 +61,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'Change my Password',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -69,7 +69,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'MySejahtera Helpdesk',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -77,7 +77,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'Change language',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -85,7 +85,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'Privacy Policy',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -93,7 +93,7 @@ class _SettingsState extends State<Settings> {
           color: Colors.red,
         ),
         itemName: 'Logout',
-        icon2: IconButton(icon: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18), onPressed: () =>logout()) 
+        icon2: IconButton(icon: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15), onPressed: () =>logout()) 
     )];
 
     Widget profilePage = SingleChildScrollView(
@@ -125,7 +125,7 @@ class _SettingsState extends State<Settings> {
                                                   0, 7, 0, 5),
                                               child: Text(e.itemName,
                                                   style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 14,
                                                       color: Colors.black)),
                                             ),
                                             Expanded(child: SizedBox()),

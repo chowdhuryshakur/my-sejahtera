@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:simple_blog_app/views/BlogList.dart';
 import 'package:simple_blog_app/views/blogDetailPage.dart';
 import 'package:simple_blog_app/views/digitalHealth.dart';
+import 'package:simple_blog_app/views/home.dart';
+import 'package:simple_blog_app/views/login.dart';
 import 'package:simple_blog_app/views/startPage.dart';
 import 'package:simple_blog_app/views/status.dart';
 import 'package:simple_blog_app/views/testPage.dart';
@@ -15,13 +17,16 @@ var routes = <String, WidgetBuilder>{
   "/detail": (BuildContext context) => BlogDetailPage(),
 };
 
-void main() => runApp(new MaterialApp(
-    title: 'Blog app',
+void main() {
+  return runApp(new MaterialApp(
+    title: 'MySejahtera',
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       fontFamily: 'NotoSans',
       primarySwatch: Colors.red,
       accentColor: Colors.yellowAccent,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
-    home: StartPage(),
+    home: LoginPage(),
     routes: routes));
+}
