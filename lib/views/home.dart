@@ -34,7 +34,7 @@ List<Blog> Blogs = [
       title: 'Digital Health',
       coverPhoto: 'img/COVID---19-Status.png',
       description: '/digitalHealth'),
-  new Blog(title: 'Hotspot', coverPhoto: 'img/COVID---19-Status.png'),
+  new Blog(title: 'Hotspot', coverPhoto: 'img/digital-health.png'),
   new Blog(
       title: 'Helpdesk',
       description: 'this is the description',

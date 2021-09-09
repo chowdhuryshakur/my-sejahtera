@@ -4,7 +4,6 @@ import 'package:flutter/rendering.dart';
 import 'package:simple_blog_app/views/checkIn.dart';
 import 'package:simple_blog_app/views/home.dart';
 import 'package:simple_blog_app/views/profile.dart';
-import 'package:simple_blog_app/widget/subCategory.dart';
 import 'package:simple_blog_app/views/statistics.dart';
 
 class Layout extends StatefulWidget {

@@ -58,6 +58,35 @@ flutter:
       - img/qr.jpg
       - img/cer-head.png
       - img/cher-foot.png
+      - img/check-in-refresh.png
+      - img/checkin.png
+      - img/dependent.png
+      - img/digital-health.png
+      - img/digital-health1.png
+      - img/digital-health2.png
+      - img/digital-health3.png
+      - img/health-faci.png
+      - img/help-desk.png
+      - img/home-icon.png
+      - img/id-edit.png
+      - img/langu.png
+      - img/location.png
+      - img/lock.png
+      - img/logout.png
+      - img/more.png
+      - img/my-seja.png
+      - img/person.png
+      - img/privacy.png
+      - img/refresh.png
+      - img/statistic.png
+      - img/test1.png
+      - img/test2.png
+      - img/test3.png
+      - img/vaccin-icon.png
+      - img/vaccine1.png
+      - img/vaccine2.png
+      - img/vaccin3.png
+      - img/virus.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
