@@ -57,7 +57,7 @@ class StartPage extends StatelessWidget {
                         child: Text('Get Started', 
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16),textAlign: TextAlign.center))),
+                            fontSize: 14),textAlign: TextAlign.center))),
                               onPressed: () => 
                                         {loginController.isUserLogedIn(),
                                           Future.delayed(Duration(milliseconds: 5000), () {

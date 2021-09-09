@@ -21,8 +21,10 @@ class _VaccinationState extends State<Vaccination> {
           size: 25,
           color: Colors.red,
         ),
-        itemName: 'Vaccine for \n '+ loginController.user.value.patientName,
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        itemName: 'Vaccine for '+ loginController.user.value.patientName,
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15),
+
+      ),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -30,7 +32,7 @@ class _VaccinationState extends State<Vaccination> {
           color: Colors.red,
         ),
         itemName: 'Add Vaccube Dependent',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -38,15 +40,16 @@ class _VaccinationState extends State<Vaccination> {
           color: Colors.red,
         ),
         itemName: 'www.vaksincovid.gov.my',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)
+    ),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
           size: 25,
           color: Colors.red,
         ),
-        itemName: 'COVID-19 Vaccine \n Information',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        itemName: 'COVID-19 Vaccine Information',
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
   ];
 
   @override
@@ -80,7 +83,7 @@ class _VaccinationState extends State<Vaccination> {
                                                   0, 7, 0, 5),
                                               child: Text(e.itemName,
                                                   style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 14,
                                                       color: Colors.black)),
                                             ),
                                             Expanded(child: SizedBox()),
@@ -107,7 +110,7 @@ class _VaccinationState extends State<Vaccination> {
                   context, MaterialPageRoute(builder: (context) => Layout()))),
             Text('       Vaccination',
                 style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 23,
                     fontWeight: FontWeight.bold,
                     color: Colors.white))
           ]),
@@ -122,6 +125,6 @@ class ProfileItem {
   Widget icon1;
   String itemName;
   Widget icon2;
-
+ 
   ProfileItem({this.icon1, this.itemName, this.icon2});
 }

@@ -17,7 +17,7 @@ class _DigitalHealthState extends State<DigitalHealth> {
           color: Colors.red,
         ),
         itemName: 'Virtual Health Advisory',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -25,7 +25,7 @@ class _DigitalHealthState extends State<DigitalHealth> {
           color: Colors.red,
         ),
         itemName: 'Clinic Appointment ',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
         icon1: Icon(
           Icons.person_pin,
@@ -33,7 +33,7 @@ class _DigitalHealthState extends State<DigitalHealth> {
           color: Colors.red,
         ),
         itemName: 'Minda Sihat',
-        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
+        icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
   ];
 
   @override
@@ -67,7 +67,7 @@ class _DigitalHealthState extends State<DigitalHealth> {
                                                   0, 7, 0, 5),
                                               child: Text(e.itemName,
                                                   style: TextStyle(
-                                                      fontSize: 16,
+                                                      fontSize: 12,
                                                       color: Colors.black)),
                                             ),
                                             Expanded(child: SizedBox()),
@@ -92,9 +92,9 @@ class _DigitalHealthState extends State<DigitalHealth> {
                 icon: Icon(Icons.arrow_back_ios, color: Colors.white, size:30),
                 onPressed: () => Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (context) => Layout()))),
-            Text('COVID-19 Self Test',
+            Text('Digial Healthcare',
                 style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Colors.white))
           ]),

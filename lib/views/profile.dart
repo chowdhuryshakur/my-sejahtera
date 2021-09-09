@@ -79,12 +79,12 @@ class _ProfileState extends State<Profile> {
                                 children: [
                                   Text(loginController.user.value.patientName,
                                       style: TextStyle(
-                                          fontSize: 19,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black)),
                                   Text('Low Risk No Symptom',
                                       style: TextStyle(
-                                          fontSize: 14, color: Colors.black)),
+                                          fontSize: 13, color: Colors.black)),
                                 ],
                               )),
                           SizedBox(width: 5)
@@ -109,13 +109,13 @@ class _ProfileState extends State<Profile> {
                                   Text('MySJ ID',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 18,
+                                        fontSize: 15,
                                       ),
                                       textAlign: TextAlign.right),
                                   Text(loginController.user.value.mysjId,
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 18,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold),
                                       textAlign: TextAlign.right),
                                 ],
@@ -130,13 +130,13 @@ class _ProfileState extends State<Profile> {
                                   Text('IC/Passport NO',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 18,
+                                        fontSize: 15,
                                       ),
                                       textAlign: TextAlign.right),
                                   Text(loginController.user.value.passport,
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 18,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold),
                                       textAlign: TextAlign.right),
                                 ],
@@ -151,13 +151,13 @@ class _ProfileState extends State<Profile> {
                                   Text('State',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 18,
+                                        fontSize: 15,
                                       ),
                                       textAlign: TextAlign.right),
                                   Text(loginController.user.value.state,
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 18,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold),
                                       textAlign: TextAlign.right),
                                 ],
@@ -213,7 +213,7 @@ class _ProfileState extends State<Profile> {
                               child: Text('As of 6 Sep 2021, 2:06 PM    ',
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 18,
+                                      fontSize: 13,
                                       fontStyle: FontStyle.italic),
                                   textAlign: TextAlign.left)),
                           Container(
@@ -370,7 +370,7 @@ class _ProfileState extends State<Profile> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                        'This is the QR code for \nMy Sejahtera \nprofile. Please show this \nto authorities when \nrequested.',
+                                        'This is the QR code for your \nMySejahtera profile. Please show this \nto authorities when \nrequested.',
                                         style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 12,
@@ -380,7 +380,7 @@ class _ProfileState extends State<Profile> {
                                       children: [
                                         Padding(
                                             padding: EdgeInsets.only(
-                                                bottom: 10, right: 5),
+                                                bottom: 10, right: 13),
                                             child: Container(
                                               height: 46.0,
                                               width: 46.0,
@@ -441,11 +441,11 @@ class _ProfileState extends State<Profile> {
                                           child: Padding(
                                             padding: EdgeInsets.all(6),
                                             child: Text('COVID-19 Negative',
-                                                style: TextStyle(fontSize: 14, color: loginController.user.value.result=='Negative'?Colors.red:Colors.green)),
+                                                style: TextStyle(fontSize: 14, color: loginController.user.value.result=='Negative'?Colors.green:Colors.red)),
                                           )))),
                               Padding(
                                   padding: EdgeInsets.fromLTRB(5, 20, 0, 0),
-                                  child: Text('Confirmation date:'+loginController.user.value.confirmationDate.toString().split(' ')[0],
+                                  child: Text('Confirmation date :\n'+loginController.user.value.confirmationDate.toString().split(' ')[0],
                                       style: TextStyle(
                                           fontSize: 12, color: Colors.white))),
                             ],
