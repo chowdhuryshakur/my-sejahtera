@@ -2,8 +2,8 @@
     package="com.example.simple_blog_app">
    <uses-permission android:name="android.permission.INTERNET" /> 
    <application
-        android:label="simple_blog_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="MySejahtera"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 import 'package:simple_blog_app/Controllers/loginController.dart';
 import 'package:simple_blog_app/Models/api.dart';
 import 'package:simple_blog_app/views/settings.dart';
+import 'package:intl/intl.dart';
 
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
+final df = new DateFormat('dd/MM/yyyy');
+final df1 = new DateFormat('dd-MMM-yyyy');
 final LoginController loginController = Get.put(LoginController());
 class _ProfileState extends State<Profile> {
   @override
@@ -178,10 +181,14 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.refresh, size: 30),
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                          child:ImageIcon(
+                              AssetImage("img/refresh.png"),size:30
+                            )),
                           Padding(
                               padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                              child: Text('Click to refresh your profile',
+                              child: Text('Click to refresh your \nprofile',
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.black))),
                           Container(
@@ -361,7 +368,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           Container(
                             color: Color(0xffF2F2F2),
-                            height: 115,
+                            height: 124,
                             child: Padding(
                                 padding: EdgeInsets.only(
                                     top: 15, right: 15, left: 15),
@@ -369,13 +376,15 @@ class _ProfileState extends State<Profile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                        'This is the QR code for your \nMySejahtera profile. Please show this \nto authorities when \nrequested.',
+                                    Container(width: MediaQuery.of(context).size.width*.5,
+                                      child:Text(
+                                        'This is the QR code for your MySejahtera profile. Please show this to authorities when requested.',
                                         style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 12,
                                         ),
                                         textAlign: TextAlign.left),
+                                    ),
                                     Row(
                                       children: [
                                         Padding(
@@ -422,13 +431,12 @@ class _ProfileState extends State<Profile> {
                     color: Color(0xff70AD46),
                     elevation: 1.0,
                     child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,//crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Column(crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                  padding: EdgeInsets.only(top: 10, left: 0),
+                                  padding: EdgeInsets.only(top: 10, left: 5),
                                   child: Container(
                                       height: 40,
                                       width: 160,
@@ -440,22 +448,22 @@ class _ProfileState extends State<Profile> {
                                           color: Colors.white,
                                           child: Padding(
                                             padding: EdgeInsets.all(6),
-                                            child: Text('COVID-19 Negative',
+                                            child: Text('COVID-19 '+loginController.user.value.result,
                                                 style: TextStyle(fontSize: 14, color: loginController.user.value.result=='Negative'?Colors.green:Colors.red)),
                                           )))),
                               Padding(
-                                  padding: EdgeInsets.fromLTRB(5, 20, 0, 0),
-                                  child: Text('Confirmation date :\n'+loginController.user.value.confirmationDate.toString().split(' ')[0],
+                                  padding: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                  child: Text('Confirmation date :\n'+df.format(loginController.user.value.confirmationDate),
                                       style: TextStyle(
                                           fontSize: 12, color: Colors.white))),
                             ],
                           ),
                           Column(children: [
                             Padding(
-                                padding: EdgeInsets.only(top: 10, bottom: 0),
+                                padding: EdgeInsets.only(top: 10, bottom: 0, right:10),
                                 child: Container(
-                                  height: 60.0,
-                                  width: 60.0,
+                                  height: 50.0,
+                                  width: 50.0,
                                   decoration: BoxDecoration(
                                       color: Color(0xFF70AD46),
                                       image: DecorationImage(
@@ -464,12 +472,12 @@ class _ProfileState extends State<Profile> {
                                               'img/malaysian-government-logo-11550724235mgo1sa74ci.png'))),
                                 )),
                             Padding(
-                                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                padding: EdgeInsets.fromLTRB(0, 5, 10, 0),
                                 child: Text('RT-PCR',
                                     style: TextStyle(
                                         fontSize: 22, color: Colors.white))),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 40, 5, 0),
+                              padding: EdgeInsets.fromLTRB(0, 40, 10, 0),
                               child: Text('Source: MKAK, KKM',
                                   style: TextStyle(
                                       fontSize: 8, color: Colors.white)),
@@ -478,7 +486,8 @@ class _ProfileState extends State<Profile> {
                         ]),
                   ),
                 ),
-                Padding(
+                Stack(children: [
+                  Padding(
                   padding: EdgeInsets.fromLTRB(6, 61, 6, 6),
                   child: Container(
                       decoration: BoxDecoration(
@@ -546,14 +555,35 @@ class _ProfileState extends State<Profile> {
                                                       textAlign:
                                                           TextAlign.left),
                                                   SizedBox(height: 5),
-                                                  Text(
-                                                      'Date: '+loginController.user.value.doseOneDate.toString().split(' ')[0]+' '+loginController.user.value.doseOneTime+' Manufacturer: '+loginController.user.value.doseOneManufacturer+' Facility: World Trade Centre KualaLumpur (Station 2) Batch: '+loginController.user.value.doseOneBatch,
+                                                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                      'Date: '+df1.format(loginController.user.value.doseOneDate)+' '+loginController.user.value.doseOneTime+' PM \nManufacturer: '+loginController.user.value.doseOneManufacturer,
                                                       style: TextStyle(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                       ),
                                                       textAlign:
                                                           TextAlign.left),
+                                                        loginController.user.value.doseTwoFacility!=null?  
+                                                        Text(
+                                                         'Facility: '+loginController.user.value.doseTwoFacility,
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.left):'',
+                                                          Text(
+                                                      'Batch: '+loginController.user.value.doseOneBatch,
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.left),
+                                                    ],
+                                                  )
                                                 ],
                                               )),
                                         ],
@@ -587,14 +617,36 @@ class _ProfileState extends State<Profile> {
                                                       textAlign:
                                                           TextAlign.left),
                                                   SizedBox(height: 5),
-                                                  Text(
-                                                       'Date: '+loginController.user.value.doseTwoDate.toString().split(' ')[0]+' '+loginController.user.value.doseTwoTime+' Manufacturer: '+loginController.user.value.doseTwoManufacturer+' Facility: World Trade Centre KualaLumpur (Station 2) Batch: '+loginController.user.value.doseTwoBatch,
+                                                  Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                      'Date: '+df1.format(loginController.user.value.doseTwoDate)+' '+loginController.user.value.doseTwoTime+' PM \nManufacturer: '+loginController.user.value.doseTwoManufacturer,
                                                       style: TextStyle(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                       ),
                                                       textAlign:
                                                           TextAlign.left),
+                                                        loginController.user.value.doseTwoFacility!=null?  
+                                                        Text(
+                                                         'Facility: '+loginController.user.value.doseTwoFacility,
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.left):'',
+                                                          Text(
+                                                      'Batch: '+loginController.user.value.doseTwoBatch,
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.left),
+                                                    ],
+                                                  )
                                                 ],
                                               )),
                                         ],
@@ -618,16 +670,14 @@ class _ProfileState extends State<Profile> {
                             ],
                           )
                         ],
-                      )),
-                ),
-              ])),
-          Container(
-              alignment: Alignment.topLeft,
-              padding: new EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 1.742,
-                  right: 10.0,
-                  left: 10.0),
-              child: Center(
+                      ))),
+                      
+          new Positioned(
+                left: MediaQuery.of(context).size.width/2-65,
+               bottom: 622,
+                child:  Container(
+                  
+                  child: Center(
                 child: Container(
                   height: 100.0,
                   width: 130.0,
@@ -637,20 +687,10 @@ class _ProfileState extends State<Profile> {
                           image: AssetImage('img/cer-head.png'))),
                 ),
               )),
+              )
+                ],)
+              ])),
+         
         ])));
   }
 }
-
-//react package.json
-// "browserslist": {
-  //   "production": [
-  //     ">0.2%",
-  //     "not dead",
-  //     "not op_mini all"
-  //   ],
-  //   "development": [
-  //     "last 1 chrome version",
-  //     "last 1 firefox version",
-  //     "last 1 safari version"
-  //   ]
-  // },

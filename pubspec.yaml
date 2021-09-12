@@ -32,11 +32,16 @@ dependencies:
   get: ^3.15.0
   intl: ^0.16.1
   shared_preferences: ^0.5.12+4
+  url_launcher: ^4.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: "^0.9.2"
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "img/applogo.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -87,6 +92,7 @@ flutter:
       - img/vaccine2.png
       - img/vaccin3.png
       - img/virus.png
+      - img/applogo.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

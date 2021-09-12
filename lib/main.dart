@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simple_blog_app/views/BlogList.dart';
 import 'package:simple_blog_app/views/blogDetailPage.dart';
 import 'package:simple_blog_app/views/digitalHealth.dart';
-import 'package:simple_blog_app/views/home.dart';
-import 'package:simple_blog_app/views/login.dart';
+import 'package:simple_blog_app/views/splashScreen.dart';
 import 'package:simple_blog_app/views/startPage.dart';
 import 'package:simple_blog_app/views/status.dart';
 import 'package:simple_blog_app/views/testPage.dart';
@@ -24,9 +22,9 @@ void main() {
     theme: ThemeData(
       fontFamily: 'NotoSans',
       primarySwatch: Colors.red,
-      accentColor: Colors.yellowAccent,
+      accentColor: Color(0xffEEEEEE),
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
-    home: LoginPage(),
+    home: SplashScreen(),
     routes: routes));
 }

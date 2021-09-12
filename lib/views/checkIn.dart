@@ -7,9 +7,12 @@ class CheckIn extends StatefulWidget {
   @override
   _CheckInState createState() => _CheckInState();
 }
+
 final LoginController loginController = Get.put(LoginController());
 
 class _CheckInState extends State<CheckIn> {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +47,31 @@ class _CheckInState extends State<CheckIn> {
                           fontSize: 35,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.right),
-                  Row(
+               loginController.isLoading1.value!=true?
+               TextButton(
+                child: Container(
+                      height: 30,
+                      width: 65,
+                      child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(10, 2, 0, 2),
+                            child:
+                                Text('Close', style: TextStyle(fontSize: 14, color: Color(0xFF3A83FF))),
+                          ))),
+                 onPressed: () => Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Layout())))
+              :Row(
                     children: [
-                      Icon(Icons.refresh, color: Colors.white, size: 18),
-                      Text('Refresh Status',
+                      ImageIcon(
+                        AssetImage("img/check-in-refresh.png"),
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      Text(' Refresh Status',
                           style: TextStyle(color: Colors.white, fontSize: 14),
                           textAlign: TextAlign.right),
                     ],
@@ -98,75 +122,94 @@ class _CheckInState extends State<CheckIn> {
               child: Column(children: [
                 Container(
                   height: 90.0,
-                  width: MediaQuery.of(context).size.width-10,
+                  width: MediaQuery.of(context).size.width - 10,
                   child: new Card(
                     color: Color(0xff62B4EC),
                     elevation: 1.0,
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.emoji_transportation_sharp, size:25, color: Colors.white,),
+                          ImageIcon(AssetImage("img/virus.png"),
+                              color: Colors.white, size: 40),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              Text('COVID-19 Risk Status',
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.white)),
-                              Text('Low Risk No Symptom',
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-                            ],)
-                          ),
+                              padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('COVID-19 Risk Status',
+                                      style: TextStyle(
+                                          fontSize: 14, color: Colors.white)),
+                                  Text('Low Risk No Symptom',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                ],
+                              )),
                           SizedBox(width: 5)
                         ]),
                   ),
                 ),
                 Container(
                   height: 90.0,
-                  width: MediaQuery.of(context).size.width-10,
+                  width: MediaQuery.of(context).size.width - 10,
                   child: new Card(
                     color: Color(0xffFED775),
                     elevation: 1.0,
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.medical_services_outlined, size:25, color: Colors.black,),
+                          ImageIcon(AssetImage("img/vaccin-icon.png"),
+                              size: 40),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              Text('COVID-19 Vaccination Status',
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black),textAlign: TextAlign.left,),
-                              Text('Fully Vaccinated',
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),textAlign: TextAlign.left,),
-                            ],)
-                          ),
+                              padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'COVID-19 Vaccination Status',
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    'Fully Vaccinated',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              )),
                           SizedBox(width: 5)
                         ]),
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*.17,),
-                Container(color: Colors.white,
-                child:TextButton(
-                    child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Color(0xFF3A83FF)),
-                        height: 35,
-                        width: MediaQuery.of(context).size.width,
-                        child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
-                            child: Text('Check-in',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                                textAlign: TextAlign.center))),
-                    onPressed: () => Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Layout())))),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .17,
+                ),
+                Container(
+                    color: Colors.white,
+                    child: TextButton(
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Color(0xFF3A83FF)),
+                            height: 35,
+                            width: MediaQuery.of(context).size.width,
+                            child: Padding(
+                                padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
+                                child: Text('Check-in',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16),
+                                    textAlign: TextAlign.center))),
+                        onPressed: () => Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Layout())))),
               ]))
         ])));
   }

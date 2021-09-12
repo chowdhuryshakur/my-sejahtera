@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:simple_blog_app/views/home.dart';
 import 'package:simple_blog_app/views/layout.dart';
 //import 'package:url_launcher/url_launcher.dart';
 //import 'about.dart';
@@ -13,26 +11,26 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   List<ProfileItem> general = [
     new ProfileItem(
-        icon1: Icon(
-          Icons.language_rounded,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 21.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/test1.png"),
         ),
         itemName: 'Information on Self Test Kits',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
     new ProfileItem(
-        icon1: Icon(
-          Icons.person_pin,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 21.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/test2.png"),
         ),
         itemName: 'Update Self Test Result',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
     new ProfileItem(
-        icon1: Icon(
-          Icons.person_pin,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 21.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/test3.png"),
         ),
         itemName: 'Purchase Online',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:18)),
@@ -54,12 +52,12 @@ class _TestPageState extends State<TestPage> {
                             .map((e) => Row(children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.fromLTRB(13, 10, 10, 10),
+                                          EdgeInsets.fromLTRB(9, 10, 10, 10),
                                       child: e.icon1),
                                   Container(
                                       height: 35.0,
                                       width: MediaQuery.of(context).size.width -
-                                          70,
+                                          90,
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,

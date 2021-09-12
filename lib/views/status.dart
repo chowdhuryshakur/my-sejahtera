@@ -54,7 +54,7 @@ class _StatusPageState extends State<StatusPage> {
                       padding: EdgeInsets.only(left:30, right:30),
                       child: Text('Are you a low risk person who has:',
                           style: TextStyle(
-                              color: Colors.grey[900], fontSize: 14),
+                              color: Colors.grey[900], fontSize: 15),
                           textAlign: TextAlign.left)),
                   Padding(
                     padding: EdgeInsets.only(left:5, right:12),
@@ -69,10 +69,10 @@ class _StatusPageState extends State<StatusPage> {
                       padding: EdgeInsets.only(left:30, right:30),
                       child: Text('If your answer is "Yes" to any of the above, kindly update your health status.',
                           style:
-                              TextStyle(color: Colors.grey[600], fontSize: 13),
+                              TextStyle(color: Colors.grey[600], fontSize: 15),
                           textAlign: TextAlign.left)),
                   // SizedBox(height: MediaQuery.of(context).size.height*.09),
-                  SizedBox(height: 100),
+                  SizedBox(height: MediaQuery.of(context).size.height*.07),
                   TextButton(
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -131,7 +131,7 @@ class UnorderedListItem extends StatelessWidget {
                 textAlign: TextAlign.left),
             Expanded(
               child: Text(text,
-                  style: TextStyle(color: Colors.grey[900], fontSize: 13)),
+                  style: TextStyle(color: Colors.grey[900], fontSize: 15)),
             ),
           ],
         ));

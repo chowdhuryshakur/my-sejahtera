@@ -9,35 +9,36 @@ class DigitalHealth extends StatefulWidget {
 }
 
 class _DigitalHealthState extends State<DigitalHealth> {
-  List<ProfileItem> general = [
+  
+  @override
+  Widget build(BuildContext context) {
+    List<ProfileItem> general = [
     new ProfileItem(
-        icon1: Icon(
-          Icons.language_rounded,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 23.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/digital-health1.png"),
         ),
         itemName: 'Virtual Health Advisory',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
-        icon1: Icon(
-          Icons.person_pin,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 23.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/digital-health2.png"),
         ),
         itemName: 'Clinic Appointment ',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
     new ProfileItem(
-        icon1: Icon(
-          Icons.person_pin,
-          size: 25,
-          color: Colors.red,
+        icon1: CircleAvatar(
+          radius: 23.0,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage("img/digital-health3.png"),
         ),
         itemName: 'Minda Sihat',
         icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size:15)),
   ];
 
-  @override
-  Widget build(BuildContext context) {
     Widget profilePage = SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -52,12 +53,12 @@ class _DigitalHealthState extends State<DigitalHealth> {
                             .map((e) => Row(children: [
                                   Padding(
                                       padding:
-                                          EdgeInsets.fromLTRB(13, 10, 10, 10),
+                                          EdgeInsets.fromLTRB(9, 10, 10, 10),
                                       child: e.icon1),
                                   Container(
                                       height: 35.0,
                                       width: MediaQuery.of(context).size.width -
-                                          70,
+                                          90,
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,

@@ -14,12 +14,7 @@ class Layout extends StatefulWidget {
 }
 
 int _selectedIndex = 0;
-final tabs = [
-  HomePage(),
-  Statistics(),
-  CheckIn(),
-  Profile()
-];
+final tabs = [HomePage(), Statistics(), CheckIn(), Profile()];
 
 class _LayoutState extends State<Layout> {
   @override
@@ -37,19 +32,27 @@ class _LayoutState extends State<Layout> {
             type: BottomNavigationBarType.fixed,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: ImageIcon(
+                  AssetImage("img/home-icon.png"),
+                ),
                 label: 'MySejahtera',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.collections_bookmark_outlined),
+                icon: ImageIcon(
+                  AssetImage("img/statistic.png"),
+                ),
                 label: 'Statistics',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.qr_code),
+                icon: ImageIcon(
+                  AssetImage("img/checkin.png"),
+                ),
                 label: 'Check-in',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
+                icon: ImageIcon(
+                  AssetImage("img/person.png"),
+                ),
                 label: 'Profile',
               ),
             ],

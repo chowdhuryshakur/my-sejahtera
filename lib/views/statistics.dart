@@ -38,7 +38,29 @@ class _StatisticsState extends State<Statistics> {
             Container(
                 alignment: Alignment.topCenter,
                 padding: new EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .10,
+                    top: MediaQuery.of(context).size.height * .11,
+                    right: 10.0,
+                    left: 10.0),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 270.0,
+                      width: MediaQuery.of(context).size.width,
+                      child: new Card(
+                        color: Color(0xff0B32F4),
+                        elevation: 1.0,
+                        child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('Nilai R (R value)',style: TextStyle(fontSize: 14, color: Colors.white)),
+                          Text('Setakat 4 Septembar 2021 23:40',style: TextStyle(fontSize: 10, color: Colors.white)),
+                          SizedBox(height: 25,),
+                          Text('0.95',style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white)),],
+                        )),
+                      ),
+                  ])),
+            Container(
+                alignment: Alignment.topCenter,
+                padding: new EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .52,
                     right: 10.0,
                     left: 10.0),
                 child: Column(
@@ -47,11 +69,17 @@ class _StatisticsState extends State<Statistics> {
                       height: 300.0,
                       width: MediaQuery.of(context).size.width,
                       child: new Card(
-                        color: Color(0xff0B32F4),
+                        color: Color(0xffFE0321),
                         elevation: 1.0,
-                        child: Center(child: Text('No data',style: TextStyle(color: Colors.white,)),
+                        child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('Jumla kes Kaseluruhan (Total confirmed Cases)',style: TextStyle(fontSize: 14, color: Colors.white),textAlign: TextAlign.center,),
+                          Text('Setakat 4 Septembar 2021 23:40',style: TextStyle(fontSize: 10, color: Colors.white)),
+                          SizedBox(height: 25,),
+                          Text('1,844,635',style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white)),],
+                        )
                       ),
-                  ))]))]),)
+                  )])),
+                  ]),)
         );
   }
 }

@@ -7,7 +7,8 @@ class LoginController extends GetxController {
   var user = new User().obs;
   var mail = ''.obs;
   var password = ''.obs;
-  var isLoading = true.obs;
+  var isLoading1 = false.obs;
+  var isLoading2 = false.obs;
 
   @override
   void onInit() {
@@ -16,17 +17,22 @@ class LoginController extends GetxController {
   }
 
   void isUserLogedIn() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    var accessToken = pref.getString('accessToken');
-    if (accessToken != null) {
-      TokenWithUser t = TokenWithUser.fromRawJson(accessToken);
-      user.value = t.user;
+    try {
+      isLoading1(true);
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      var accessToken = pref.getString('accessToken');
+      if (accessToken != null) {
+        TokenWithUser t = TokenWithUser.fromRawJson(accessToken);
+        user.value = t.user;
+      }
+    } finally {
+      isLoading1(true);
     }
   }
 
   void fetchUser() async {
     try {
-      isLoading(true);
+      isLoading2(true);
       var data = await LoginService().loginFetch(mail.value, password.value);
       if (data != null) {
         TokenWithUser t = TokenWithUser.fromRawJson(data);
@@ -35,7 +41,7 @@ class LoginController extends GetxController {
         pref.setString("accessToken", data.toString());
       }
     } finally {
-      isLoading(false);
+      isLoading2(false);
     }
   }
 }

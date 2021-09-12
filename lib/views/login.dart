@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
         isloading = true;
       });
       loginController.fetchUser();
-      Future.delayed(Duration(milliseconds: 10000), () {
+      Future.delayed(Duration(milliseconds: 5000), () {
         if (loginController.user.value.id != null)
           setState(() {
             Navigator.pushReplacement(
@@ -46,12 +46,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   alertPopup(BuildContext context) {
-    Widget okButton =
-        FlatButton(onPressed: () => Navigator.pop(context), child: Text('OK'));
+    Widget okButton = TextButton(onPressed: () => Navigator.pop(context), child: Text('OK', style: TextStyle(color: Colors.blue)));
     AlertDialog alert = AlertDialog(
-      title: Text("Incorrect Credential"),
-      content: Text("You email or password is incorrect."),
-      actions: [okButton],
+      insetPadding: EdgeInsets.symmetric(vertical: 90),
+      title: Text("Login",style: TextStyle(fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+      content: Text("Invalid user ID or passwordd", style: TextStyle(fontSize: 13),textAlign: TextAlign.center,),
+      actions: [okButton]
     );
     showDialog(
         context: context,
@@ -63,13 +63,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: [
+        body: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
       Expanded(
           flex: 1,
           child: Form(
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                
                 children: <Widget>[
                   SizedBox(height: 50),
                   Center(
@@ -113,6 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                             )))),
                     SizedBox(width: 10),
                     Container(
+                      decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(0xffFFFFFF),
+                            border: Border.all(color: Colors.grey[300])
+                        ),
                         child: SizedBox(
                       height: 40.0,
                       width: MediaQuery.of(context).size.width * .55,
@@ -120,17 +127,12 @@ class _LoginPageState extends State<LoginPage> {
                         controller: number,
                         decoration: new InputDecoration(
                             fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: Colors.black38),
-                                
-                            ),
+                            border: InputBorder.none,
                             filled: true,
                             focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.blueGrey)),
+                                borderSide: BorderSide(color: Color(0xffE0E0E0))),
                             contentPadding: EdgeInsets.only(
-                                bottom: 5.0, left: 10.0, right: 10.0),
+                                bottom: 8.0, left: 10.0, right: 10.0),
                             hintStyle: new TextStyle(
                                 color: Colors.black54, fontSize: 13.0),
                             hintText: "Mobile number"),
@@ -140,6 +142,11 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 10),
                   Center(
                     child: Container(
+                       decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(0xffFFFFFF),
+                            border: Border.all(color: Colors.grey[300])
+                        ),
                         child: SizedBox(
                       height: 40.0,
                       width: MediaQuery.of(context).size.width - 23,
@@ -147,10 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: password,
                         decoration: new InputDecoration(
                             fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: Colors.black38)),
+                            border: InputBorder.none,
                             filled: true,
                             focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.blueGrey)),
@@ -163,8 +167,8 @@ class _LoginPageState extends State<LoginPage> {
                             suffixIcon: IconButton(
                                 icon: Icon(
                                     _isObscure
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
+                                        ? Icons.visibility_off
+                                        : Icons.visibility, size: 18,
                                     color: Colors.grey[400]),
                                 onPressed: () {
                                   setState(() {
@@ -180,18 +184,24 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     
                   ),
-                  Padding(
-                      padding: EdgeInsets.fromLTRB(140, 5, 0, 0),
-                      child: Text('Login with email',
+                  Align( 
+                    alignment: Alignment.topRight,
+                child:Padding(padding: EdgeInsets.fromLTRB(0, 5, MediaQuery.of(context).size.width*.04, 0),
+                  child:Text('Login with email',
                           style: TextStyle(
                               color: Color(0xFF3A83FF),
                               fontSize: 12,
                               fontWeight: FontWeight.bold
                           ),
-                          textAlign: TextAlign.right
-                      )
-                  ),
+                          //textAlign: TextAlign.right,
+                      ))),
                   SizedBox(height: MediaQuery.of(context).size.height * .06),
+                    Obx(() {
+           if (loginController.isLoading2.value)
+            return Center(
+                child: CircularProgressIndicator(backgroundColor: Color(0xffEEEEEE),));
+          return Container();
+            }),
                   TextButton(
                       child: Container(
                           decoration: BoxDecoration(

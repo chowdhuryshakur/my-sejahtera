@@ -32,25 +32,25 @@ List<Blog> Blogs = [
       description: '/test'),
   new Blog(
       title: 'Digital Health',
-      coverPhoto: 'img/COVID---19-Status.png',
+      coverPhoto: 'img/digital-health.png',
       description: '/digitalHealth'),
-  new Blog(title: 'Hotspot', coverPhoto: 'img/digital-health.png'),
+  new Blog(title: 'Hotspot', coverPhoto: 'img/location.png'),
   new Blog(
       title: 'Helpdesk',
       description: 'this is the description',
-      coverPhoto: 'img/COVID---19-Status.png'),
+      coverPhoto: 'img/help-desk.png'),
   new Blog(
       title: 'Manage Dependents',
       description: 'this is the description',
-      coverPhoto: 'img/COVID---19-Self-Test.png'),
+      coverPhoto: 'img/dependent.png'),
   new Blog(
       title: 'Health Facilities',
       description: 'this is the description',
-      coverPhoto: 'img/COVID---19-Status.png'),
+      coverPhoto: 'img/health-faci.png'),
   new Blog(
       title: 'More',
       description: 'this is the description',
-      coverPhoto: 'img/COVID---19-Self-Test.png'),
+      coverPhoto: 'img/more.png'),
 ];
 final CprcController cprcController = Get.put(CprcController());
 final df = new DateFormat('dd MMM yyyy');
@@ -163,9 +163,9 @@ class _HomePageState extends State<HomePage>
                                             fontWeight: FontWeight.bold
                                         ),
                                         textAlign: TextAlign.left)),
-                                SizedBox(height: 10,),
+                                SizedBox(height: 10),
 
-                                Padding(
+                                item.link!=null?Padding(
                                     padding: const EdgeInsets.fromLTRB(
                                         15, 0, 10, 0),
                                     child: Row(
@@ -175,19 +175,21 @@ class _HomePageState extends State<HomePage>
                                               style: TextStyle(
                                                 color: Colors.grey[600],
                                                 fontSize: 13
-                                              ),
+                                              ),textAlign: TextAlign.left
                                             ),
-                                            Text(
-                                              item.link!=null?item.link:'',
+                                            Container(width: MediaQuery.of(context).size.width*.58,
+                                             child: Text(
+                                              item.link,
                                               style: TextStyle(
                                                   color: Colors.blueAccent,
                                                   fontSize: 11,
                                                   decoration: TextDecoration.underline,
-                                              )
+                                              ),textAlign: TextAlign.left
                                             ),
+                                            )
                                       ],
                                     )
-                                ),
+                                ):SizedBox(height: 2),
                                 
                                 SizedBox(height: 8),
                                 Container(
@@ -250,7 +252,7 @@ class _HomePageState extends State<HomePage>
                 child: Column(
                   children: [
                     Container(
-                      height: 305.0,
+                      height: MediaQuery.of(context).size.height*.50,
                       width: MediaQuery.of(context).size.width,
                       child: new Card(
                         color: Colors.white,
@@ -277,20 +279,20 @@ class _HomePageState extends State<HomePage>
                                       Text('Things to know',
                                           style: TextStyle(
                                               color: Colors.black, 
-                                              fontSize: 16, 
+                                              fontSize: MediaQuery.of(context).size.width*.025, 
                                               fontWeight: FontWeight.bold
                                           )
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                                         child: Container(
+                                          width: MediaQuery.of(context).size.width*.12,
+                                          height: MediaQuery.of(context).size.height*.045,
                                           decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.red
                                         ),
-                                          child: Padding(
-                                            padding: EdgeInsets.fromLTRB(20, 0, 20, 3),
-                                            child: Text('.',
+                                          child:Center(child: Text('.',
                                                 style: TextStyle(
                                                     color: Colors.white, 
                                                     fontSize: 16, 
@@ -308,18 +310,18 @@ class _HomePageState extends State<HomePage>
                                     children: [
                                       Text('Things to do',
                                           style: TextStyle(
-                                              color: Colors.black, fontSize: 16)
+                                              color: Colors.black, fontSize: MediaQuery.of(context).size.width*.03,)
                                       ),
                                        Padding(
                                         padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                                         child: Container(
+                                          width: MediaQuery.of(context).size.width*.15,
+                                          height: MediaQuery.of(context).size.height*.06,
                                           decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.grey[100]
                                         ),
-                                          child: Padding(
-                                            padding: EdgeInsets.fromLTRB(20, 5, 20, 3),
-                                            child: Text('14',
+                                          child: Center(child: Text('14',
                                                 style: TextStyle(
                                                     color: Colors.red, 
                                                     fontSize: 16, 

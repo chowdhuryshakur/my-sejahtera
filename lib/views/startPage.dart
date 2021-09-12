@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:simple_blog_app/views/layout.dart';
 import 'package:simple_blog_app/views/login.dart';
-import 'package:get/get.dart';
-import 'package:simple_blog_app/Controllers/loginController.dart';
 
-final LoginController loginController = Get.put(LoginController());
-class StartPage extends StatelessWidget {
+
+class StartPage extends StatefulWidget {
+  StartPage({Key key, this.title}) : super(key: key);
+  final String title;
+  @override
+  _StartPageState createState() => _StartPageState();
+}
+
+
+class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(                  
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -45,34 +50,27 @@ class StartPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: 80),
-                    TextButton(child: 
-                    Container(
-                      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Color(0xFF3A83FF)),
-                      height: 35,
-                      width: MediaQuery.of(context).size.width,
-                      child: Padding(
-                        padding:EdgeInsets.fromLTRB(50, 6, 50, 6),
-                        child: Text('Get Started', 
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14),textAlign: TextAlign.center))),
-                              onPressed: () => 
-                                        {loginController.isUserLogedIn(),
-                                          Future.delayed(Duration(milliseconds: 5000), () {
-                                          if(loginController.user.value.id == null){
-                                            Navigator.pushReplacement(
-                                            context,   MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
-                                          }else if(loginController.user.value.id != null){
-                                            Navigator.pushReplacement(
-                                            context,   MaterialPageRoute(
-                                            builder: (context) => Layout()));}
-                                          }
-                    )}
-                                      ),
-                    Padding(padding: EdgeInsets.only(top: 20.0),
+                    TextButton(
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Color(0xFF3A83FF)),
+                            height: 35,
+                            width: MediaQuery.of(context).size.width,
+                            child: Padding(
+                                padding: EdgeInsets.fromLTRB(50, 6, 50, 6),
+                                child: Text('Get Started',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14),
+                                    textAlign: TextAlign.center))),
+                        onPressed: () => {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()))
+                            }),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20.0),
                     ),
                   ],
                 ),
