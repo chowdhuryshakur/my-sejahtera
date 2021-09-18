@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:simple_blog_app/Controllers/loginController.dart';
 import 'package:simple_blog_app/views/layout.dart';
 
-class CheckIn extends StatefulWidget {
+class CheckInStart extends StatefulWidget {
   @override
-  _CheckInState createState() => _CheckInState();
+  _CheckInStartState createState() => _CheckInStartState();
 }
 
 final LoginController loginController = Get.put(LoginController());
 
-class _CheckInState extends State<CheckIn> {
+class _CheckInStartState extends State<CheckInStart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +22,11 @@ class _CheckInState extends State<CheckIn> {
           new Column(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * .4,
+                height: MediaQuery.of(context).size.height * .40,
                 color: Color(0xFF3A83FF),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * .45,
+                height: MediaQuery.of(context).size.height * .50,
                 color: Color(0xFFECF0F1),
               )
             ],
@@ -40,13 +40,7 @@ class _CheckInState extends State<CheckIn> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Check-in',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.right),
-                      Row(
+                  Row(
                           children: [
                             ImageIcon(
                               AssetImage("img/check-in-refresh.png"),
@@ -58,7 +52,25 @@ class _CheckInState extends State<CheckIn> {
                                     color: Colors.white, fontSize: 14),
                                 textAlign: TextAlign.right),
                           ],
-                        )
+                        ),
+                  TextButton(
+                      child: Container(
+                          height: 30,
+                          width: 65,
+                          child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              color: Colors.white,
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(10, 2, 0, 2),
+                                child: Text('Close',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Color(0xFF3A83FF))),
+                              ))),
+                      onPressed: () => Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Layout())))
                 ],
               )),
           Container(
@@ -84,7 +96,7 @@ class _CheckInState extends State<CheckIn> {
                   ),
                   Text(loginController.user.value.patientName,
                       style: TextStyle(
-                        fontFamily: 'arial',
+                          fontFamily: 'arial',
                           color: Colors.white,
                           fontSize: 22,
                           fontWeight: FontWeight.bold),
@@ -126,12 +138,15 @@ class _CheckInState extends State<CheckIn> {
                                 children: [
                                   Text('COVID-19 Risk Status',
                                       style: TextStyle(
-                                          fontFamily: 'arial',fontSize: 14, color: Colors.white)),
+                                          fontFamily: 'arial',
+                                          fontSize: 14,
+                                          color: Colors.white)),
                                   SizedBox(height: 5,),
                                   Text('Low Risk No Symptom',
                                       style: TextStyle(
                                           fontSize: 18,
-                                          fontFamily: 'arial',fontWeight: FontWeight.bold,
+                                          fontFamily: 'arial',
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.white)),
                                 ],
                               )),
@@ -162,14 +177,17 @@ class _CheckInState extends State<CheckIn> {
                                   Text(
                                     'COVID-19 Vaccination Status',
                                     style: TextStyle(
-                                        fontFamily: 'arial',fontSize: 14, color: Colors.black),
+                                        fontFamily: 'arial',
+                                        fontSize: 14,
+                                        color: Colors.black),
                                     textAlign: TextAlign.left,
                                   ),
                                   SizedBox(height: 5,),
                                   Text(
                                     'Fully Vaccinated',
                                     style: TextStyle(
-                                        fontFamily: 'arial',fontSize: 18,
+                                        fontFamily: 'arial',
+                                        fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black),
                                     textAlign: TextAlign.left,
@@ -181,11 +199,11 @@ class _CheckInState extends State<CheckIn> {
                   ),
                 ),
                 // SizedBox(
-                //   height: MediaQuery.of(context).size.height * .15,
+                //   height: MediaQuery.of(context).size.height * .232,
                 // ),
                 Expanded(child: SizedBox()),
                 Container(
-                  height: 60,
+                    height: 60,
                     color: Colors.white,
                     child: TextButton(
                         child: Container(

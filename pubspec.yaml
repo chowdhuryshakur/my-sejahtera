@@ -30,9 +30,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.12.1
   get: ^3.15.0
-  intl: ^0.16.1
+  intl: ^0.17.0
   shared_preferences: ^0.5.12+4
   url_launcher: ^4.0.2
+  youtube_player_flutter: ^8.0.0
+  image_picker: ^0.6.7+22
+
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +96,9 @@ flutter:
       - img/vaccin3.png
       - img/virus.png
       - img/applogo.png
+      - img/vtrack.png
+      - img/locationPin.png
+      - img/greenTik.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

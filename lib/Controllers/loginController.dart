@@ -9,6 +9,8 @@ class LoginController extends GetxController {
   var password = ''.obs;
   var isLoading1 = false.obs;
   var isLoading2 = false.obs;
+  var popup1 = false.obs;
+  var token = ''.obs;
 
   @override
   void onInit() {
@@ -18,16 +20,14 @@ class LoginController extends GetxController {
 
   void isUserLogedIn() async {
     try {
-      isLoading1(true);
       SharedPreferences pref = await SharedPreferences.getInstance();
       var accessToken = pref.getString('accessToken');
       if (accessToken != null) {
         TokenWithUser t = TokenWithUser.fromRawJson(accessToken);
         user.value = t.user;
+        token.value = t.accessToken;
       }
-    } finally {
-      isLoading1(true);
-    }
+    } finally {}
   }
 
   void fetchUser() async {
@@ -43,5 +43,18 @@ class LoginController extends GetxController {
     } finally {
       isLoading2(false);
     }
+  }
+
+  void photoUp(String img) async {
+    isLoading1(true);
+    var data = await LoginService().upImage(user.value.id, token.value, img);
+    if (data != null) {
+      TokenWithUser t = TokenWithUser.fromRawJson(data);
+      user.value = t.user;
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      pref.setString("accessToken", data.toString());
+      popup1(true);
+      isLoading1(false);
+    }isLoading1(false);
   }
 }

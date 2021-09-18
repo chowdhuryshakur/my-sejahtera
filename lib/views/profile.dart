@@ -186,11 +186,13 @@ class _ProfileState extends State<Profile> {
                           child:ImageIcon(
                               AssetImage("img/refresh.png"),size:30
                             )),
-                          Padding(
+                          Container( width: MediaQuery.of(context).size.width*.5,
+                            child:Padding(
                               padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                              child: Text('Click to refresh your \nprofile',
+                              child: Text('Click to refresh your profile',
                                   style: TextStyle(
-                                      fontSize: 16, color: Colors.black))),
+                                      fontSize: 14, color: Colors.black))),
+                          ),
                           Container(
                               height: 35,
                               width: 75,
@@ -258,7 +260,7 @@ class _ProfileState extends State<Profile> {
                                         padding: EdgeInsets.only(bottom: 10),
                                         child: Container(
                                           height: 60.0,
-                                          width: 60.0,
+                                          width: MediaQuery.of(context).size.width*.22,
                                           decoration: BoxDecoration(
                                               color: Color(0xFF63B3ED),
                                               image: DecorationImage(
@@ -463,7 +465,7 @@ class _ProfileState extends State<Profile> {
                                 padding: EdgeInsets.only(top: 10, bottom: 0, right:10),
                                 child: Container(
                                   height: 50.0,
-                                  width: 50.0,
+                                  width: MediaQuery.of(context).size.width*.2,
                                   decoration: BoxDecoration(
                                       color: Color(0xFF70AD46),
                                       image: DecorationImage(

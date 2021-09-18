@@ -5,6 +5,7 @@ import 'package:simple_blog_app/views/layout.dart';
 import 'package:simple_blog_app/views/login.dart';
 import 'package:get/get.dart';
 import 'package:simple_blog_app/Controllers/loginController.dart';
+import 'package:simple_blog_app/views/myDetails.dart';
 
 final LoginController loginController = Get.put(LoginController());
 
@@ -42,7 +43,13 @@ class _SettingsState extends State<Settings> {
                 NetworkImage(Api().base + loginController.user.value.image),
           ),
           itemName: 'My Personal Details',
-          icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 15)),
+          icon2:        Container(
+              padding: const EdgeInsets.all(0.0),
+              width: 25.0, // you can adjust the width as you need
+              child: IconButton(
+                icon: Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 15),
+                 onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyDetails()))))
+              ),
       new ProfileItem(
           icon1: CircleAvatar(
             radius: 16.0,

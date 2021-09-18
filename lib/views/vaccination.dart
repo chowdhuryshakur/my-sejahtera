@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:simple_blog_app/Models/api.dart';
 import 'package:simple_blog_app/views/home.dart';
 import 'package:simple_blog_app/views/layout.dart';
+import 'package:simple_blog_app/views/vaccination1.dart';
 import 'package:url_launcher/url_launcher.dart';
 //import 'about.dart';
 import 'package:simple_blog_app/Controllers/loginController.dart';
@@ -34,8 +35,13 @@ class _VaccinationState extends State<Vaccination> {
           backgroundImage: NetworkImage(Api().base + loginController.user.value.image),
         ),
       itemName: 'Vaccine for ' + loginController.user.value.patientName,
-      icon2: Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 15),
-    ),
+      icon2: Container(
+              padding: const EdgeInsets.all(0.0),
+              width: 25.0,
+      child: IconButton(
+                icon: Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 15),
+                 onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Vaccination1())),
+    ))),
     new ProfileItem(
         icon1: CircleAvatar(
           radius: 25.0,

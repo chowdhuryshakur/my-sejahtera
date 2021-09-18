@@ -25,7 +25,7 @@ class TokenWithUser {
   factory TokenWithUser.fromJson(Map<String, dynamic> json) => TokenWithUser(
         accessToken: json["accessToken"],
         tokenType: json["tokenType"],
-        expiresAt: DateTime.parse(json["expiresAt"]),
+        expiresAt: DateTime.parse(json["expiresAt"] ?? "2021-09-06T20:46:15.000000Z"),
         user: User.fromJson(json["user"]),
       );
 
@@ -107,15 +107,15 @@ class User {
         mysjId: json["mysj_id"],
         email: json["email"],
         passport: json["passport"],
-        dateOfBirth: DateTime.parse(json["date_of_birth"]),
+        dateOfBirth: DateTime.parse(json["date_of_birth"] ?? "2021-09-06T20:46:15.000000Z"),
         age: json["age"],
         state: json["state"],
-        confirmationDate: DateTime.parse(json["confirmation_date"]),
-        doseOneDate: DateTime.parse(json["dose_one_date"]),
+        confirmationDate: DateTime.parse(json["confirmation_date"] ?? "2021-09-06T20:46:15.000000Z"),
+        doseOneDate: DateTime.parse(json["dose_one_date"] ?? "2021-09-06T20:46:15.000000Z"),
         doseOneTime: json["dose_one_time"],
         doseOneManufacturer: json["dose_one_manufacturer"],
         doseOneBatch: json["dose_one_batch"],
-        doseTwoDate: DateTime.parse(json["dose_two_date"]),
+        doseTwoDate: DateTime.parse(json["dose_two_date"]?? "2021-09-06T20:46:15.000000Z"),
         doseTwoTime: json["dose_two_time"],
         doseTwoFacility: json["dose_two_faculty"],
         doseOneFacility: json["dose_one_faculty"],
@@ -123,8 +123,8 @@ class User {
         doseTwoBatch: json["dose_two_batch"],
         image: json["image"],
         status: json["status"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        createdAt: DateTime.parse(json["created_at"]?? "2021-09-06T20:46:15.000000Z"),
+        updatedAt: DateTime.parse(json["updated_at"]?? "2021-09-06T20:46:15.000000Z"),
       );
 
   Map<String, dynamic> toJson() => {
